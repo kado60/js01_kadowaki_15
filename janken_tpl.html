@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<link rel="icon" href="./img/グリコ.jpg">
+
+<title>グリコゲーム</title>
+</head>
+<body>
+
+<header>
+  <h1 id="title">グリコゲーム</h1>
+</header>
+
+<main>
+  <h2>あなたの手を選んでください</h2>
+  <ul>
+    <!-- <li id="gu_btn">グリコ</li>
+    <li id="cho_btn">チョコレート</li>
+    <li id="par_btn">パイナップル</li>
+   -->
+    <button id="g_btn" onclick="btn_Click(0)">グリコ</button>
+    <button id="c_btn" onclick="btn_Click(1)">チョコレート</button>
+    <button id="p_btn" onclick="btn_Click(2)">パイナップル</button>
+    
+  </ul>
+  <div id="player_hand"></div>
+  <div id="pc_hand"></div>
+  <div id="result_msg"></div>
+</main>
+
+<footer></footer>
+<script>
+//じゃんけん用のSCRIPTを書いてください
+$("#title").fadeOut(2000)
+$("#title").fadeIn(2000)
+$("#title").fadeOut(2000)
+$("#title").fadeIn(2000)
+$("#title").fadeOut(2000)
+$("#title").fadeIn(2000)
+    
+function btn_Click(janken_p_c) {
+        let janken = ['グリコ','チョコレート','パイナップル',];
+        let janken_c = Math.floor(Math.random()*3);
+        let result ;
+        // computerの出す手を選ぶ
+        let janken_p = ['グリコ','チョコレート','パイナップル'];
+        // playerの出す手を選ぶ
+            if (janken_p === janken_c) {
+              result = 'あいこ！';}
+            else if(janken_p == 0 && janken_c == 1) {
+              result = 'あなたの勝ち！３マス進む';}
+            else if(janken_p == 1 && janken_c == 2) {
+              result = 'あなたの勝ち！６マス進む';}
+            else if(janken_p == 2 && janken_c == 0) {
+              result = 'あなたの勝ち！６マス進む';}
+            else if(janken_p == 1 && janken_c == 0) {
+              result = 'あなたの負け……相手が3マス進む';}
+            else if(janken_p == 2 && janken_c == 1) {
+              result = 'あなたの負け……相手が6マス進む';}
+            else if(janken_p == 0 && janken_c == 2) {
+              result = 'あなたの負け……相手が6マス進む';}
+
+            document.getElementById("player_hand").innerHTML = "あなたは" + janken_p[janken_p_c] +"を選択しました。";
+            document.getElementById("pc_hand").innerHTML = "相手は" + janken[janken_c] + "を選択しました。";
+            document.getElementById("result_msg").innerHTML = "結果は" + result;
+            }
+
+</script>
+</body>
+</html>
